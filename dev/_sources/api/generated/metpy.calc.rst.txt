@@ -39,6 +39,7 @@ calc
       get_wind_components
       get_wind_dir
       get_wind_speed
+      gradient
       h_convergence
       heat_index
       height_to_geopotential

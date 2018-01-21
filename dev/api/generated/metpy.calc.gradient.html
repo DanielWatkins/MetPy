@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>first_derivative &mdash; MetPy 0.7</title>
+  <title>gradient &mdash; MetPy 0.7</title>
   
 
   
@@ -17,7 +17,7 @@
   
   
   
-    <link rel="canonical" href="https://unidata.github.io/MetPy/latest/api/generated/metpy.calc.first_derivative.html"/>
+    <link rel="canonical" href="https://unidata.github.io/MetPy/latest/api/generated/metpy.calc.gradient.html"/>
   
 
   
@@ -45,8 +45,8 @@
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="MetPy 0.7" href="../../index.html"/>
         <link rel="up" title="calc" href="metpy.calc.html"/>
-        <link rel="next" title="friction_velocity" href="metpy.calc.friction_velocity.html"/>
-        <link rel="prev" title="find_intersections" href="metpy.calc.find_intersections.html"/> 
+        <link rel="next" title="h_convergence" href="metpy.calc.h_convergence.html"/>
+        <link rel="prev" title="get_wind_speed" href="metpy.calc.get_wind_speed.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -145,7 +145,7 @@
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.el.html">el</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.equivalent_potential_temperature.html">equivalent_potential_temperature</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.find_intersections.html">find_intersections</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">first_derivative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.first_derivative.html">first_derivative</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.friction_velocity.html">friction_velocity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.frontogenesis.html">frontogenesis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.geopotential_to_height.html">geopotential_to_height</a></li>
@@ -156,7 +156,7 @@
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.get_wind_components.html">get_wind_components</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.get_wind_dir.html">get_wind_dir</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.get_wind_speed.html">get_wind_speed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.calc.gradient.html">gradient</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">gradient</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.h_convergence.html">h_convergence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.heat_index.html">heat_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.height_to_geopotential.html">height_to_geopotential</a></li>
@@ -276,7 +276,7 @@
         
           <li><a href="metpy.calc.html">calc</a> &raquo;</li>
         
-      <li>first_derivative</li>
+      <li>gradient</li>
     
     
     <li class="source-link">
@@ -284,7 +284,7 @@
             
                 
                 
-                <a href="https://github.com/Unidata/MetPy/issues/new?title=Suggested%20improvement%20for%20api/generated/metpy.calc.first_derivative&body=Please%20describe%20what%20could%20be%20improved%20about%20this%20page%20or%20the%20typo/mistake%20that%20you%20found%3A"
+                <a href="https://github.com/Unidata/MetPy/issues/new?title=Suggested%20improvement%20for%20api/generated/metpy.calc.gradient&body=Please%20describe%20what%20could%20be%20improved%20about%20this%20page%20or%20the%20typo/mistake%20that%20you%20found%3A"
                    class="fa fa-github"> Improve this page</a>
             
         
@@ -298,38 +298,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="first-derivative">
-<h1>first_derivative<a class="headerlink" href="#first-derivative" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="gradient">
+<h1>gradient<a class="headerlink" href="#gradient" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="metpy.calc.first_derivative">
-<code class="descclassname">metpy.calc.</code><code class="descname">first_derivative</code><span class="sig-paren">(</span><em>f</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/metpy/calc/tools.html#first_derivative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metpy.calc.first_derivative" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate the first derivative of a grid of values.</p>
-<p>Works for both regularly-spaced data and grids with varying spacing.</p>
-<p>Either <em class="xref py py-obj">x</em> or <em class="xref py py-obj">delta</em> must be specified. This uses 3 points to calculate the
-derivative, using forward or backward at the edges of the grid as appropriate, and
-centered elsewhere. The irregular spacing is handled explicitly, using the formulation
-as specified by <a class="reference internal" href="../../references.html#bowen2005" id="id1">[Bowen2005]</a>.</p>
+<dt id="metpy.calc.gradient">
+<code class="descclassname">metpy.calc.</code><code class="descname">gradient</code><span class="sig-paren">(</span><em>f</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/metpy/calc/tools.html#gradient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metpy.calc.gradient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the gradient of a grid of values.</p>
+<p>Works for both regularly-spaced data, and grids with varying spacing.</p>
+<p>Either <em class="xref py py-obj">x</em> or <em class="xref py py-obj">deltas</em> must be specified.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>f</strong> (<em>array-like</em>) – Array of values of which to calculate the derivative</li>
-<li><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a><em>, </em><em>optional</em>) – The array axis along which to take the derivative. Defaults to 0.</li>
-<li><strong>x</strong> (<em>array-like</em><em>, </em><em>optional</em>) – The coordinate values corresponding to the grid points in <em class="xref py py-obj">f</em>.</li>
-<li><strong>delta</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Spacing between the grid points in <em class="xref py py-obj">f</em>. Should be one item less than the size
+<li><strong>x</strong> (<em>array-like</em><em>, </em><em>optional</em>) – The coordinate values corresponding to the grid points in <em class="xref py py-obj">f</em></li>
+<li><strong>deltas</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Spacing between the grid points in <em class="xref py py-obj">f</em>. There should be one item less than the size
 of <em class="xref py py-obj">f</em> along <em class="xref py py-obj">axis</em>.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><em>array-like</em> – The first derivative calculated along the selected axis.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><em>array-like</em> – The first derivative calculated along each axis in the original array</p>
 </td>
 </tr>
 </tbody>
 </table>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="metpy.calc.second_derivative.html#metpy.calc.second_derivative" title="metpy.calc.second_derivative"><code class="xref py py-func docutils literal"><span class="pre">second_derivative()</span></code></a></p>
+<p class="last"><a class="reference internal" href="metpy.calc.laplacian.html#metpy.calc.laplacian" title="metpy.calc.laplacian"><code class="xref py py-func docutils literal"><span class="pre">laplacian()</span></code></a></p>
 </div>
 </dd></dl>
 
@@ -345,10 +341,10 @@ of <em class="xref py py-obj">f</em> along <em class="xref py py-obj">axis</em>.
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="metpy.calc.friction_velocity.html" class="btn btn-neutral float-right" title="friction_velocity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="metpy.calc.h_convergence.html" class="btn btn-neutral float-right" title="h_convergence" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="metpy.calc.find_intersections.html" class="btn btn-neutral" title="find_intersections" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="metpy.calc.get_wind_speed.html" class="btn btn-neutral" title="get_wind_speed" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
